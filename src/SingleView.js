@@ -31,9 +31,22 @@ const styles={
     height: 120,
     width: 120,
     marginTop: 37,
-    marginLeft: 110,
+    marginLeft: 80,
     borderRadius: 100
+  },
+  listMain: {
+    width: 472,
+    height: '100%',
+    border: '1px solid #D3DEE2',
+    margin: 20
+  },
+  singleView :{
+    background: '#F3F5F6',
+    fontSize: 20,
+    padding: 14,
+    border: '1px solid #D3DEE2',
   }
+
 }
 
 export default React.createClass({
@@ -52,18 +65,21 @@ export default React.createClass({
   render() {
   	var contact = this.state.contact
     return (
-    	<div style={styles.main}>
-    		<div style={styles.imageContainer}>
-    			<button className="backButton" styles={styles.backButton} onClick={this.handleBack} ></button>
-    			<img style={styles.image} src={this.state.contact.picture.medium} alt={this.state.contact.name.first} />
-    		</div>
-    		<ul style={styles.ul}>
-				  <li style={styles.listEntry}><span style={styles.cap}> {contact.name.first} {contact.name.last}</span></li>
-    		  <li style={styles.listEntry}>{contact.email}</li>
-          <li style={styles.listEntry}>{contact.cell}</li>
-          <li style={styles.listEntry}><span style={styles.cap}> {contact.location.city +', '+ contact.location.state}</span></li>
-        </ul>
-  		</div>
+      <div style={styles.listMain}>                 
+          <div style={styles.singleView}> Single View </div> 
+          <div style={styles.main}>
+        		<div style={styles.imageContainer}>
+        			<button className="backButton" onClick={this.handleBack} ></button>
+        			<img style={styles.image} src={this.state.contact.picture.medium} alt={this.state.contact.name.first} />
+          	</div>
+          	<ul style={styles.ul}>
+      			  <li style={styles.listEntry}><span style={styles.cap}> {contact.name.first} {contact.name.last}</span></li>
+        		  <li style={styles.listEntry}>{contact.email}</li>
+              <li style={styles.listEntry}>{contact.cell}</li>
+              <li style={styles.listEntry}><span style={styles.cap}> {contact.location.city +', '+ contact.location.state}</span></li>
+            </ul>
+      		</div>
+      </div>
     )
   }
 })

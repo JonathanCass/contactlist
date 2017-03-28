@@ -1,6 +1,5 @@
 import React from 'react'
-import {Link, Route} from 'react-router-dom'
-import SingleView from './SingleView'
+import {Link} from 'react-router-dom'
 import data from './contacts'
 
 const styles={
