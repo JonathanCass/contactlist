@@ -1,33 +1,35 @@
 import React from 'react'
 import {Link, Route} from 'react-router-dom'
-import shortid from 'shortid'
 import SingleView from './SingleView'
-import data from './data'
+import data from './contacts'
 
 const styles={
   listMain: {
-    width: 400,
-    height: 50,
+    width: 472,
+    height: '100%',
+    border: '1px solid #D3DEE2',
+    margin: 20
+  },
+  listView :{
     background: '#F3F5F6',
     fontSize: 20,
     padding: 14,
-    border: '1px solid #D3DEE2' 
+    border: '1px solid #D3DEE2',
   },
   myPeeps: {
-    width: 374,
+    width: 450,
     height: 52,
     color: 'white',
     background: '#81BC39',
     fontSize: 20,
-    marginTop: 10,
-    marginLeft: 20,
     padding: 14,
     border: '1px solid #649C1A',
-    borderWidth: '0 0 3px 0'
+    borderWidth: '0 0 3px 0',
   },
   ul:{
     listStyle: 'none',
-    padding: 0
+    padding: 0,
+    marginLeft: 20
   },
   person: {
     width: 50,
@@ -38,19 +40,23 @@ const styles={
     borderRadius: 25
   },
   listEntry: {
-    width: 374,
+    width: 450,
     height: 50,
-    marginLeft: 20,
     fontSize: 14,
     border: '1px solid #D3DEE2',
     borderWidth: '0 0 1px 0',
   },
   names:{
-    height:'100%',
-    width:324,
-    float: 'left',
     textTransform: 'capitalize',
-    padding:18
+    padding:18,
+    height:50,
+    float: 'left',
+    display:'inline-block',
+    color: 'black',
+    fontSize: 13
+  },
+  avatar:{
+    float: 'left'
   }
 }
 
@@ -62,9 +68,11 @@ export default React.createClass({
           <div>
             <ul style={styles.ul}>
               <li style={styles.myPeeps}>My Peeps</li>
-                {data.map(function(person){
+                {data.map(function(data){
                   return(
-                    <Link key={person.id} to='/SingleView/'><li style={styles.listEntry} key={'id' + shortid.generate()}><div value={person.id} style={styles.person}></div><span value={person.id} style={styles.names}>{person.name.first +' '+ person.name.last}</span></li></Link>
+                    <Link to={'/person/' + data.id} key={'clist' + data.id}>
+                      <li style={styles.listEntry}><img style={styles.avatar} alt={data.name.first + data.name.last} src={data.picture.thumbnail} /><span style={styles.names}>{data.name.first} {data.name.last} </span> </li>
+                    </Link>
                     )
                 }.bind(this))}
             </ul>
