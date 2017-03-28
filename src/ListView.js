@@ -63,21 +63,20 @@ const styles={
 export default React.createClass({
   render(){
   	return (
-  		<div style={styles.listMain}>                   
+  		<div style={styles.listMain}>                 
           <div style={styles.listView}> List View </div>     
           <div>
             <ul style={styles.ul}>
               <li style={styles.myPeeps}>My Peeps</li>
                 {data.map(function(data){
                   return(
-                    <Link to={'/person/' + data.id} key={'clist' + data.id}>
+                    <Link to={'/SingleView/' + data.id} key={'clist' + data.id}>
                       <li style={styles.listEntry}><img style={styles.avatar} alt={data.name.first + data.name.last} src={data.picture.thumbnail} /><span style={styles.names}>{data.name.first} {data.name.last} </span> </li>
                     </Link>
                     )
                 })}
             </ul>
           </div>
-        <Route path='/SingleView' component={SingleView} />
         </div>
   	)
   }
