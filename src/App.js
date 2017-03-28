@@ -9,6 +9,7 @@ export default React.createClass({
       <Router>
         <div>
           <Route exact={true} path='/' component={ListView} />
+          <Route path='SingleView/:personId' component={SingleView} />
         </div>
       </Router>
     )

@@ -74,7 +74,7 @@ export default React.createClass({
                       <li style={styles.listEntry}><img style={styles.avatar} alt={data.name.first + data.name.last} src={data.picture.thumbnail} /><span style={styles.names}>{data.name.first} {data.name.last} </span> </li>
                     </Link>
                     )
-                }.bind(this))}
+                })}
             </ul>
           </div>
         <Route path='/SingleView' component={SingleView} />
