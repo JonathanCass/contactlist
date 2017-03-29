@@ -73,10 +73,10 @@ export default React.createClass({
         			<img style={styles.image} src={this.state.contact.picture.medium} alt={this.state.contact.name.first} />
           	</div>
           	<ul style={styles.ul}>
-      			  <li style={styles.listEntry}><span style={styles.cap}> {contact.name.first} {contact.name.last}</span></li>
-        		  <li style={styles.listEntry}>{contact.email}</li>
-              <li style={styles.listEntry}>{contact.cell}</li>
-              <li style={styles.listEntry}><span style={styles.cap}> {contact.location.city +', '+ contact.location.state}</span></li>
+      			  <li style={styles.listEntry}><i class="fa fa-user" aria-hidden="true"></i><span style={styles.cap}> {contact.name.first} {contact.name.last}</span></li>
+        		  <li style={styles.listEntry}><i class="fa fa-envelope" aria-hidden="true"></i>{contact.email}</li>
+              <li style={styles.listEntry}><i class="fa fa-mobile" aria-hidden="true"></i>{contact.cell}</li>
+              <li style={styles.listEntry}><i class="fa fa-globe" aria-hidden="true"></i><span style={styles.cap}> {contact.location.city +', '+ contact.location.state}</span></li>
             </ul>
       		</div>
       </div>
